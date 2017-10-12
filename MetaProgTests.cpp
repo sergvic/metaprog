@@ -62,6 +62,7 @@ int main()
 
 	return 0;
 
+
 	//const int f = 5;
 	//enum r {a1 = A<100>::test(), b1};
 	//double b[r::a1] = { 0 };
