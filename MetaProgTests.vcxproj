@@ -149,6 +149,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="k22exp.cpp" />
     <ClCompile Include="MetaProgTests.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>

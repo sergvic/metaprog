@@ -32,5 +32,8 @@
     <ClCompile Include="MetaProgTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="k22exp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
