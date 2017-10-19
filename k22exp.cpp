@@ -21,27 +21,28 @@ public:
 };
 
 // e(x) = 1 + x + x^2/2! + x^3/3!
-// e(x) = 1 + x * 1/1 * (1 + x * 1/2 * (1 + x * 1/3 * (1 + x))) )
+// e(x) = 1 + x * 1/1 * (1 + x * 1/2 * (1 + x * 1/3 * (1 + x * 1/4 * (1+x * 1/5 * (1 + x) )))) )
 // sin(x) = x - x^3/3! + x^5/5! - ..... = x * (1 - x^2/3! + x^4/5! - ...)
 
 double expRuntime(float x, int n, int k)
 {
 	if (k == 0) return 1;
-	else return 1 + 1.0 / (n - k) * x * expRuntime(x, n, k - 1);
+	else return 1 + 1.0 / (n - k) * x * expRuntime(x, n, k - 2);
 }
 
 template <int a, int b, int n, int k> class expSeries { //x = a/b
 public:
+	enum { go = (k != 1) };
 	static float f()
 	{
-		return 1.0 + 1.0 / (n - k) * (float)a / b * expSeries<a, b, n, k - 1>::f();
+		return 1.0 + 1.0 / (n - k) * (n-k+1) * (float)a / b * expSeries<a*go, b*go, n*go, k - 1>::f();
 	}
 
 	//static const float e = 
 	//	1 + 1 / (n - k) * (float)a / b * expSeries<a, b, n, k - 1>::e;
 };
 
-template <int a, int b, int n> class expSeries<a, b, n, 0> {
+template <> class expSeries<0, 0, 0, 0> {
 public:
 	//static const int e = 1;
 	static float f() {
